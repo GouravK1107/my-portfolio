@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gourav R · Backend Developer (Django | Python | SQL)</title>
+  <!-- same premium fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
+</head> 
+<body>
+  <!-- Navbar -->
+  <nav class="portfolio-nav" id="portfolioNav">
+    <a href="#" class="logo" onclick="event.preventDefault()">
+      <div class="logo-icon">⚙️</div>
+      <div class="logo-text">Gourav<span> R</span></div>
+    </a>
+    <div class="nav-actions">
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</button>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Journey</button>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('awards').scrollIntoView({behavior:'smooth'})">Awards</button>
+      <a href="https://drive.google.com/uc?export=download&id=1iE6NDoQ87KCeLgg6hmQWsCM0rOnqvnva" target="_blank" class="btn btn-ghost btn-sm"> Resume </a>
+      <button class="btn btn-primary btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+      <button class="btn-icon" id="themeToggleBtn" onclick="toggleDarkModeWithSpin()" title="Toggle Dark Mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Toolkit Card -->
+  <section class="portfolio-hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <!-- TINY STARS CONTAINER - VERY SMALL BLINKING STARS -->
+      <div class="stars-container" id="starsContainer"></div>
+    </div>
+    <br>
+    <div class="hero-eyebrow">⚡ Backend Developer · Django | Python | SQL</div>
+    <!-- Original Headline (Larger) -->
+    <h1 class="hero-title">
+      Building <span class="accent-word">Scalable</span><br>Backend Systems
+    </h1>
+
+    <p class="hero-sub">
+      Backend developer specializing in Python and Django. I build scalable APIs, database-driven web applications, and backend systems with clean architecture.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary btn-lg" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">✨ View Projects</button>
+      <button class="btn btn-secondary btn-lg" onclick="window.open('https://github.com/GouravK1107', '_blank')">GitHub →</button>
+      <button class="btn btn-secondary btn-lg" onclick="window.open('https://drive.google.com/uc?export=download&id=1iE6NDoQ87KCeLgg6hmQWsCM0rOnqvnva', '_blank')">📄 Download Resume</button>
+    </div>
+
+    <!-- Developer Toolkit Card -->
+    <div class="hero-visual">
+      <div class="toolkit-card">
+        <div class="toolkit-header">
+          <div class="toolkit-header-left">
+            <div class="toolkit-window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span style="font-size:13px; font-weight:500; color:var(--text2); margin-left:6px;">Developer Toolkit</span>
+          </div>
+          <span class="toolkit-badge">⚙️ AI-Assisted</span>
+        </div>
+
+        <div class="toolkit-grid">
+          <!-- Backend Core -->
+          <div class="toolkit-category">
+            <div class="category-title">
+              <span>🔧</span> Backend Stack
+            </div>
+            <div class="category-items">
+              <span class="tech-item"><span>🐍</span> Python</span>
+              <span class="tech-item"><span>🎯</span> Django</span>
+              <span class="tech-item"><span>🗄️</span> SQL</span>
+              <span class="tech-item"><span>🐘</span> PostgreSQL</span>
+              <span class="tech-item"><span>🔗</span> REST APIs</span>
+              <span class="tech-item"><span>🔄</span> Git</span>
+              <span class="tech-item"><span>🐙</span> GitHub</span>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="toolkit-category">
+            <div class="category-title">
+              <span>🎨</span> Frontend
+            </div>
+            <div class="category-items">
+              <span class="tech-item"><span>📄</span> HTML (Good)</span>
+              <span class="tech-item"><span>🎨</span> CSS (Intermediate)</span>
+              <span class="tech-item"><span>⚡</span> JavaScript (Intermediate)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Productivity -->
+        <div class="ai-section">
+          <div class="ai-section-title">
+            <span>🤖</span> AI Productivity
+          </div>
+          <div class="ai-items">
+            <span class="ai-item"><span>🔗</span> n8n Workflow Automation</span>
+            <span class="ai-item"><span>⚡</span> Faster Debugging</span>
+            <span class="ai-item"><span>📊</span> Code Optimization</span>
+            <span class="ai-item"><span>🧩</span> Problem-Solving</span>
+            <span class="ai-item"><span>💬</span> ChatGPT</span>
+            <span class="ai-item"><span>⌨️</span> Copilot</span>
+            <span class="ai-item"><span>🔍</span> Perplexity</span>
+            <span class="ai-item"><span>🧠</span> Claude</span>
+            <span class="ai-item"><span>🖥️</span> Cursor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="portfolio-section scroll-reveal" id="projects">
+    <div class="section-eyebrow">Featured Work</div>
+    <h2 class="section-title">High-Impact<br>Projects</h2>
+    <p class="section-sub">Selected projects that demonstrate my backend development skills and growth.</p>
+    
+    <div class="projects-grid">
+      <!-- Django Student CRUD -->
+      <div class="project-card scroll-reveal">
+        <div class="project-image">📚</div>
+        <div class="project-content">
+          <h3 class="project-title">Django Student CRUD</h3>
+          <p class="project-desc">My first Django project! A complete CRUD application for managing student records with database operations, authentication, and clean UI. Demonstrates fundamental Django skills.</p>
+          <div class="project-tech">
+            <span>Django</span>
+            <span>SQLite</span>
+            <span>Authentication</span>
+            <span>CRUD</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/GouravK1107/Django_Student_CRUD_operation_project" target="_blank">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog App -->
+      <div class="project-card scroll-reveal" style="transition-delay:0.1s">
+        <div class="project-image">📝</div>
+        <div class="project-content">
+          <h3 class="project-title">Blog App (Django)</h3>
+          <p class="project-desc">A full-featured blog platform built with Django. Features include post creation/editing, user authentication, comments, and responsive design. Production-ready structure.</p>
+          <div class="project-tech">
+            <span>Django</span>
+            <span>Auth</span>
+            <span>PostgreSQL</span>
+            <span>Bootstrap</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/GouravK1107/Blog_app" target="_blank">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Todo API -->
+      <div class="project-card scroll-reveal" style="transition-delay:0.2s">
+        <div class="project-image">✅</div>
+        <div class="project-content">
+          <h3 class="project-title">Todo API (Django REST)</h3>
+          <p class="project-desc">RESTful Todo API built with Django REST Framework. Features complete CRUD operations, token authentication, pagination, and comprehensive API documentation.</p>
+          <div class="project-tech">
+            <span>Django REST</span>
+            <span>DRF</span>
+            <span>Token Auth</span>
+            <span>JSON</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/GouravK1107/Todo_API" target="_blank">GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Journey -->
+  <section style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 90px 48px;" id="journey">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="section-eyebrow">Engineering Journey</div>
+      <h2 class="section-title">My Development Journey</h2>
+      <p class="section-sub">From Python fundamentals to building Django applications and REST APIs — each project strengthened my backend engineering skills.</p>
+      
+      <div class="timeline scroll-reveal">
+        <div class="timeline-item">
+          <div class="timeline-year">2023 - 2026</div>
+          <div class="timeline-title">Bachelor of Computer Applications (BCA)</div>
+          <div class="timeline-desc">Bachelor of Computer Applications from Krishna Devaraya University. Still pursuing the degree.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024 – 2026</div>
+          <div class="timeline-title">Developed Backend Projects for College Peers</div>
+          <div class="timeline-desc">Built backend applications for college peers and seniors using Django and Python. Implemented authentication systems, database models, CRUD workflows, and REST-style APIs while managing source code with Git and GitHub.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Current</div>
+          <div class="timeline-title">Backend Engineering, AI Automation & ML Exploration</div>
+          <div class="timeline-desc">
+          Currently strengthening backend engineering skills through Data Structures and Algorithms, Django application architecture, REST API development, and relational database design. Building backend projects while exploring AI-assisted development, workflow automation using n8n, and beginning exploration into Artificial Intelligence and Machine Learning systems.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section class="portfolio-section scroll-reveal" id="awards">
+    <div class="section-eyebrow">Recognition</div>
+    <h2 class="section-title">Awards & Achievements</h2>
+    <p class="section-sub">Proud moments from my journey as a developer.</p>
+    
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-icon">🏆</div>
+        <div class="award-content">
+          <h4>Winner - Chakravyua Event</h4>
+          <p>BITM University, Bellary · July 20, 2024</p>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">👨‍🏫</div>
+        <div class="award-content">
+          <h4>Mentor - Ignitron 2K25 (CodeRush)</h4>
+          <p>Guided team that won at GM University (GMU) · Dec 4, 2025 · 24h National Hackathon · AI in Healthcare</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Activity -->
+  <section style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 90px 48px;" id="github">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="section-eyebrow">Open Source</div>
+      <h2 class="section-title">GitHub Activity</h2>
+      <p class="section-sub">Active contributor with real code and collaboration.</p>
+      
+      <div class="github-stats">
+        <div class="stat">
+          <div class="stat-number" id="repo-count">6</div>
+          <div class="stat-label">Public Repos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="follower-count">-</div>
+          <div class="stat-label">Followers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="following-count">-</div>
+          <div class="stat-label">Following</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="portfolio-section scroll-reveal" id="contact">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-sub">Open to collaborations, opportunities, and technical conversations.</p>
+    
+    <div class="contact-grid">
+      <a href="https://github.com/GouravK1107" target="_blank" class="contact-item">🐙</a>
+      <a href="https://linkedin.com/in/gourav-r-1107" target="_blank" class="contact-item">🔗</a>
+      <a href="mailto:gkprof1107@gmail.com" class="contact-item">📧</a>
+      <a href="tel:+919916259010" class="contact-item">📞</a>
+    </div>
+
+    <div class="contact-info">
+      <p><strong>📍</strong> Hospet, Karnataka</p>
+      <p><strong>📧</strong> gkprof1107@gmail.com</p>
+      <p><strong>📞</strong> +91 9916259010</p>
+    </div>
+
+    <div class="languages">
+      <span class="language-badge">🇬🇧 English</span>
+      <span class="language-badge">🇮🇳 Hindi</span>
+      <span class="language-badge">🇮🇳 Marathi</span>
+      <span class="language-badge">🇮🇳 Kannada</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="portfolio-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="event.preventDefault()">
+          <div class="logo-icon">⚙️</div>
+          <div style="font-weight:700;font-size:17px;color:white">Gourav <span style="color:var(--accent)">R</span></div>
+        </a>
+        <p>Backend developer skilled in leveraging AI-assisted development to accelerate problem-solving, improve code quality, and optimize backend architecture.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="https://github.com/GouravK1107" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/gourav-kumar-9426a137b/" target="_blank">LinkedIn</a>
+        <a href="mailto:gkprof1107@gmail.com">Email</a>
+        <a href="tel:+919916259010">Phone</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Gourav R · Backend Developer</div>
+      <div class="footer-badges">
+        <span class="badge badge-local">🐍 Python (Good)</span>
+        <span class="badge badge-local">⚡ Django (Good)</span>
+        <span class="badge badge-local">🗄️ SQL (Intermediate)</span>
+        <span class="badge badge-award">🏆 Chakravyua Winner</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="portfolio.js"></script>
+</body>
+</html>
