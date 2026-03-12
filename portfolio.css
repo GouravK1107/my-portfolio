@@ -1,6 +1,7 @@
 /* ============================================================
-       FULL DESIGN SYSTEM 
-    ============================================================= */
+   FULL DESIGN SYSTEM - FULLY RESPONSIVE
+   ============================================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -291,6 +292,12 @@ button {
   gap: 12px;
 }
 
+/* Desktop navigation buttons - visible by default */
+.nav-actions .btn-ghost,
+.nav-actions .btn-primary {
+  display: inline-flex;
+}
+
 .portfolio-hero {
   padding-top: 68px;
   min-height: 100vh;
@@ -540,17 +547,6 @@ button {
     background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero-name {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  color: var(--text2);
-  margin-bottom: 8px;
-  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both;
-  position: relative;
-  z-index: 2;
-  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-title {
@@ -1248,6 +1244,20 @@ button {
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Footer badges - FULLY RESPONSIVE */
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.footer-badges .badge {
+  font-size: 11px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
 /* languages */
 .languages {
   display: flex;
@@ -1294,21 +1304,624 @@ button {
   }
 }
 
+/* ========== FULLY RESPONSIVE DESIGN - ALL DEVICES ========== */
+
+/* Large Tablets (1024px and below) */
+@media (max-width: 1024px) {
+  .portfolio-section {
+    padding: 80px 40px;
+  }
+  
+  .hero-title {
+    font-size: clamp(38px, 7vw, 68px);
+  }
+  
+  .toolkit-grid {
+    gap: 20px;
+  }
+  
+  .footer-inner {
+    gap: 40px;
+  }
+}
+
+/* Medium Tablets (768px and below) */
 @media (max-width: 768px) {
   .portfolio-nav {
     padding: 0 20px;
+    height: 60px;
   }
+  
+  /* Hide all desktop navigation buttons */
+  .nav-actions .btn-ghost,
+  .nav-actions .btn-primary {
+    display: none;
+  }
+  
+  /* Keep Resume button and Theme Toggle visible */
+  .nav-actions a.btn-ghost[href*="drive.google.com"],
+  .nav-actions .btn-icon {
+    display: inline-flex;
+  }
+  
+  .nav-actions {
+    gap: 8px;
+  }
+  
+  /* Make Resume button stand out on mobile */
+  .nav-actions a.btn-ghost[href*="drive.google.com"] {
+    padding: 6px 12px;
+    font-size: 13px;
+    background: var(--accent);
+    color: white;
+    border-radius: var(--radius-sm);
+  }
+  
+  .nav-actions a.btn-ghost[href*="drive.google.com"]:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  
+  .btn-icon {
+    padding: 6px;
+  }
+  
+  /* ENSURE NAME IS ALWAYS VISIBLE - NO HIDING */
+  .logo-text {
+    display: inline-block !important;
+    font-size: 16px;
+  }
+  
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .hero-name {
+    font-size: 26px;
+  }
+  
+  .portfolio-hero {
+    padding-top: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .hero-eyebrow {
+    font-size: 10px;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-title {
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 12px;
+  }
+  
+  .hero-sub {
+    font-size: 15px;
+    max-width: 100%;
+    margin: 0 auto 24px;
+    padding: 0 10px;
+  }
+  
+  .hero-actions {
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  
+  .btn-lg {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .hero-visual {
+    width: 95%;
+  }
+  
+  .toolkit-card {
+    padding: 20px 20px 24px;
+  }
+  
+  .toolkit-header {
+    margin-bottom: 20px;
+  }
+  
+  .toolkit-header-left span {
+    font-size: 12px !important;
+  }
+  
+  .toolkit-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  
+  .toolkit-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .toolkit-category {
+    padding: 16px;
+  }
+  
+  .category-title {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .tech-item {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  
+  .ai-section {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  
+  .ai-section-title {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .ai-item {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  
   .portfolio-section {
     padding: 60px 20px;
   }
-  .toolkit-grid {
-    grid-template-columns: 1fr;
+  
+  .section-eyebrow {
+    font-size: 10px;
+    margin-bottom: 8px;
   }
+  
+  .section-title {
+    font-size: clamp(24px, 5vw, 32px);
+    margin-bottom: 12px;
+  }
+  
+  .section-sub {
+    font-size: 14px;
+    margin-bottom: 32px;
+    max-width: 100%;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .project-card {
+    max-width: 100%;
+  }
+  
+  .project-image {
+    height: 160px;
+    font-size: 40px;
+  }
+  
+  .project-content {
+    padding: 20px;
+  }
+  
+  .project-title {
+    font-size: 17px;
+  }
+  
+  .project-desc {
+    font-size: 13px;
+  }
+  
+  .project-tech span {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .timeline-item {
+    padding: 20px;
+  }
+  
+  .timeline-year {
+    font-size: 18px;
+  }
+  
+  .timeline-title {
+    font-size: 15px;
+  }
+  
+  .timeline-desc {
+    font-size: 12px;
+  }
+  
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .award-card {
+    padding: 20px;
+  }
+  
+  .award-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+  
+  .award-content h4 {
+    font-size: 15px;
+  }
+  
+  .award-content p {
+    font-size: 12px;
+  }
+  
+  .github-stats {
+    padding: 24px 16px;
+    gap: 16px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 10px;
+  }
+  
+  .contact-grid {
+    gap: 12px;
+  }
+  
+  .contact-item {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+  
+  .contact-info {
+    padding: 16px;
+    margin-top: 20px;
+  }
+  
+  .contact-info p {
+    font-size: 13px;
+  }
+  
+  .languages {
+    gap: 6px;
+  }
+  
+  .language-badge {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  
   .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
+  
   .portfolio-footer {
     padding: 40px 20px 24px;
+  }
+  
+  .footer-brand p {
+    font-size: 13px;
+  }
+  
+  .footer-col-title {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .footer-col a {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .footer-bottom {
+    padding-top: 20px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-copy {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  /* Footer badges responsive */
+  .footer-badges {
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .footer-badges .badge {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .portfolio-nav {
+    padding: 0 12px;
+    height: 56px;
+  }
+  
+  /* Keep name visible - never hide it */
+  .logo-text {
+    display: inline-block !important;
+    font-size: 15px;
+  }
+  
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  
+  .hero-name {
+    font-size: 24px;
+  }
+  
+  .nav-actions a.btn-ghost[href*="drive.google.com"] {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  
+  .btn-icon {
+    padding: 4px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .toolkit-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .toolkit-header-left {
+    width: 100%;
+  }
+  
+  .toolkit-badge {
+    align-self: flex-start;
+  }
+  
+  .category-items {
+    gap: 6px;
+  }
+  
+  .tech-item {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
+  
+  .ai-items {
+    gap: 6px;
+  }
+  
+  .ai-item {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .project-links a {
+    font-size: 12px;
+  }
+  
+  .github-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat {
+    width: 100%;
+  }
+  
+  .contact-grid {
+    gap: 8px;
+  }
+  
+  .contact-item {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .footer-brand p {
+    max-width: 100%;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .footer-badges .badge {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+}
+
+/* Very small screens (360px and below) */
+@media (max-width: 360px) {
+  .logo-text {
+    display: inline-block !important;
+    font-size: 14px;
+  }
+  
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+  
+  .hero-name {
+    font-size: 22px;
+  }
+  
+  .nav-actions a.btn-ghost[href*="drive.google.com"] {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  
+  .btn-icon {
+    padding: 3px;
+  }
+  
+  .hero-title {
+    font-size: clamp(24px, 6vw, 28px);
+  }
+  
+  .hero-sub {
+    font-size: 13px;
+  }
+  
+  .toolkit-category {
+    padding: 12px;
+  }
+  
+  .tech-item {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+  
+  .ai-item {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+  
+  .project-image {
+    height: 140px;
+    font-size: 36px;
+  }
+  
+  .project-content {
+    padding: 16px;
+  }
+  
+  .project-title {
+    font-size: 16px;
+  }
+  
+  .project-desc {
+    font-size: 12px;
+  }
+  
+  .footer-badges .badge {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+}
+
+/* Large Desktop (1440px and above) */
+@media (min-width: 1440px) {
+  .portfolio-section {
+    max-width: 1400px;
+    padding: 100px 48px;
+  }
+  
+  .hero-title {
+    font-size: clamp(48px, 6vw, 86px);
+  }
+  
+  .hero-sub {
+    font-size: 18px;
+    max-width: 600px;
+  }
+  
+  .toolkit-card {
+    max-width: 800px;
+  }
+}
+
+/* Landscape mode optimization */
+@media (orientation: landscape) and (max-height: 600px) {
+  .portfolio-hero {
+    min-height: auto;
+    padding-top: 68px;
+    padding-bottom: 40px;
+  }
+  
+  .hero-visual {
+    margin-top: 20px;
+  }
+  
+  .hero-actions {
+    margin-bottom: 30px;
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .tiny-star {
+    box-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Print styles */
+@media print {
+  .portfolio-nav,
+  .hero-bg,
+  .stars-container,
+  .hero-actions,
+  .btn,
+  .portfolio-footer {
+    display: none;
+  }
+  
+  .portfolio-hero {
+    min-height: auto;
+    padding: 20px;
+  }
+  
+  .hero-title {
+    color: black;
+  }
+  
+  .hero-title .accent-word {
+    -webkit-text-fill-color: #0b3d91;
   }
 }
