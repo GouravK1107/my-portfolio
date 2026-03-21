@@ -131,3 +131,141 @@ async function fetchGitHubStats() {
   }
 }
 fetchGitHubStats();
+
+// ========== VIEW ALL PROJECTS MODAL ==========
+// Create modal HTML dynamically
+function createProjectsModal() {
+  // Check if modal already exists
+  if (document.getElementById("projects-modal")) return;
+  
+  const modalHTML = `
+    <div id="projects-modal" class="projects-modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>📁 All GitHub Projects</h3>
+          <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-content" id="modalProjectsList">
+          <div class="modal-loading">
+            <div class="spinner"></div>
+            <p>Loading projects from GitHub...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// Fetch all repositories from GitHub
+async function fetchAllGitHubRepos() {
+  const username = 'GouravK1107';
+  const modalContent = document.getElementById('modalProjectsList');
+  
+  if (!modalContent) return;
+  
+  try {
+    // Show loading state
+    modalContent.innerHTML = `
+      <div class="modal-loading">
+        <div class="spinner"></div>
+        <p>Loading projects from GitHub...</p>
+      </div>
+    `;
+    
+    // Fetch all repos (max 100)
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+    
+    if (!response.ok) throw new Error('Failed to fetch repositories');
+    
+    const repos = await response.json();
+    
+    // Filter out forked repos (optional - show only your original repos)
+    const originalRepos = repos.filter(repo => !repo.fork);
+    
+    if (originalRepos.length === 0) {
+      modalContent.innerHTML = '<p class="modal-empty">No repositories found.</p>';
+      return;
+    }
+    
+    // Generate HTML for each repo
+    const reposHTML = originalRepos.map(repo => `
+      <div class="modal-repo-card">
+        <div class="modal-repo-header">
+          <h4>📦 ${repo.name}</h4>
+          <div class="modal-repo-stats">
+            <span>⭐ ${repo.stargazers_count}</span>
+            <span>🍴 ${repo.forks_count}</span>
+          </div>
+        </div>
+        <p class="modal-repo-desc">${repo.description || 'No description available.'}</p>
+        <div class="modal-repo-lang">
+          ${repo.language ? `<span class="lang-badge">${repo.language}</span>` : ''}
+          <span class="repo-updated">Updated: ${new Date(repo.updated_at).toLocaleDateString()}</span>
+        </div>
+        <div class="modal-repo-links">
+          <a href="${repo.html_url}" target="_blank" class="modal-repo-link">🔗 GitHub →</a>
+          ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="modal-repo-link">🌐 Live Demo →</a>` : ''}
+        </div>
+      </div>
+    `).join('');
+    
+    modalContent.innerHTML = reposHTML;
+    
+  } catch (error) {
+    console.error('Error fetching repos:', error);
+    modalContent.innerHTML = `
+      <div class="modal-error">
+        <p>⚠️ Failed to load repositories. Please try again later.</p>
+        <button onclick="fetchAllGitHubRepos()" class="retry-btn">Retry</button>
+      </div>
+    `;
+  }
+}
+
+// Open modal
+function openProjectsModal() {
+  const modal = document.getElementById('projects-modal');
+  if (!modal) createProjectsModal();
+  
+  const modalElement = document.getElementById('projects-modal');
+  if (modalElement) {
+    modalElement.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Fetch repos when modal opens
+    fetchAllGitHubRepos();
+  }
+}
+
+// Close modal
+function closeProjectsModal() {
+  const modal = document.getElementById('projects-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Add event listeners after DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+  createProjectsModal();
+  
+  // Close modal when clicking overlay or close button
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal-overlay')) {
+      closeProjectsModal();
+    }
+    if (e.target.id === 'closeModalBtn') {
+      closeProjectsModal();
+    }
+  });
+  
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeProjectsModal();
+    }
+  });
+});
