@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gourav.R - Backend developer</title>
+<title>Gourav R — Backend developer (Django · Python · SQL)</title>
 <meta name="description" content="Gourav R builds Django APIs, data models and the backend plumbing behind web apps. Projects, engineering journey and contact details." />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMEUyNTMwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBBMUIyMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iNDkyIiBoZWlnaHQ9IjQ5MiIgcng9IjE1MCIgZmlsbD0idXJsKCNnKSIgc3Ryb2tlPSIjM0ZEOUE0IiBzdHJva2Utb3BhY2l0eT0iLjIyIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8dGV4dCB4PSIyNTYiIHk9IjMxNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LWZhbWlseT0iJ0pldEJyYWlucyBNb25vJywnU0YgTW9ubycsdWktbW9ub3NwYWNlLE1lbmxvLG1vbm9zcGFjZSIKICAgICAgICBmb250LXNpemU9IjIzMCIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9Ii02IgogICAgICAgIGZpbGw9IiMzRkQ5QTQiPmdyPC90ZXh0Pgo8L3N2Zz4K" />
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFgklEQVR4nLRXW2xURRj+Z86tW8p2sdJyK5cFgZLScKkYIjEGUB8kBDGaeHkwBlsfxMREecM0vkBMNAbTBEnkgQeN8iAPJBolQEyDKEpxITRIhQJtKS1syXa7e/ZcZjx79syZOZdty4OTzc7O5b98/3VWhmrjzw6lTdmiPpa0lesHf24hE7n5AJJzYMffL29LfMY1ybtP7H++L5uTzIx0w4TWLiOODMVtth3au2jo+KW9pGBsIrq1jlhWipLyCQ1epDF75R1KATtKIEl+iDW5F9Vpvze/uqE78/6Xg1MqsKbrFfX+hdxe43Z2n10oNSKEXGbO5M7u9fKMwJu9c08ovx/dR5o8mlg298C9Xelu6DxiRhQoCx/55d5ZazS3mTpwmQwBagh5dN8X6jGm7JxdwwiUpuS58bfWPsuUkHxqbeEn5uD465QQD7ELkLPz1gwR4xpBLghHHh0wPs7Hniw1p4aLUuHmrdO+BRbs3vn05D/Dp4luqEzjAIIA4HifM6X5xcCGyABQjWLWtCzYOvbDTz0YrnSp+nD2PVI0VCQiFRFUpEBwGbYAA8roKEfO6L2J6qZiDmb3AO2ScZudVkjJ2MgDTZi5KXxELGjCgSbeZ2ufTuDDlATd2NiWSWv44bdnm6hhL4/4nJGGkESQA1MqxucQUgYxtyKwdGuN1XN+Ni713X3SyXMcuAxUtHrAl3GpyZjGIUeBtKA8tgjFD04NPIXBtObx4Po/fC66hWcJsW0ghcLSKPIZ+txHMq3PUQA5ry/OL6e6yh77yqXyHstzAUFywzJY1LEN1PkpyF0ccJLZhjlbVsPg0TNw77vfXPJ1Jz4EqUaFgUM/QuOudkgsbABbNyDzxiGgBVMQzmOnPGQReZzP5WQC0vt3g5RQwXw4Ccl1SwArvH6BYPXyaO7cDvm/b0H+8h2ob087PUECCwxuWN8tSFQAhNoOAU3nPNPiCp/sH4FrHxwDp7lA69fvglxfK0hHPpuho2dh7MQfFXpFBl7WQ5XSA4kDvovxudpU767zl28DNS2w8zrkrw0L8FHABLkL17nPnfvIIr5Beb0AzwLEU2CKPIeAKASR6hwqt1bRADHaWcpyMWKWYGaB6nleGs25+3VrF1cCVFNg1uqFTDygoAGC0Q5VkPvBRngMVOvn42euQHPHVpi1Yh6sPPAayKkEKE5ghun8NUB1n4tt1tMOR5BDMM/LPu//+HsoDozB7PVLgdoUJjK3KsIswouQaAEvpqoiF7PMrQZhC/hmrKwLN0fhaucRn+maw3tcGuP+hH+vd+enEH0ZOWsSRF7JilAdcN9wKNTVBATL978MCGMo9N+F2a2LIbGs0S0yeccSU/qcRpEj1iO8fJMJVkew5Agzo287RmTnipDavBLqWirBZ47n4eZnJ8HKTs7Y52HLOogc6cqIrC5J9ur9khuR1Wr7v13HhTX/ITS5IHKIQw4e8soayxjUdLIXN3S8OCSpeBQesZ/PKM8RinFr5SKS8WhDx0tDOGP2GKApV+AR+/mM8jzgc24BV+mE8lfGLBoY2o+YUn1tN9YkIiKfrp9TsWzHIPfZiMi9tZTQiJqqPQztnabb1oo3BvqSrasarVxxk/84Efs5hN77goX8EUDONqmPybeck03Kgjnd2V/PfVE+8gvR2Pqmj5S5yYsU+bTT+Jy5Z2Y+d4VLjvDG5KXxTYv2Mbm8sZ+/aunvbD+WzJZSRDc3gk0w93kEb1XkQZ9z5LhWM7Xmhs/HX2h5Ew5+o4NwHhlNO57bpt95cBgsssI2nb+7NnHfcJGn+JR5jtxUQ7KzUpXr2uLH3x47eaonoj9UG/QrpW7H8RVayWiBEl2FEG3gh8T/xv4quOEo+8Cps9dKtYm+/M50v/iHVBz/AQAA//9ENDlrAAAABklEQVQDAMGl7B027a2/AAAAAElFTkSuQmCC" />
@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="portfolio.css" />
+
 </head>
 <body>
 <div id="root"></div>
@@ -56,7 +57,7 @@
   function run() {
     fetch("portfolio.js")
       .then(function (r) {
-        if (!r.ok) throw new Error("script.js not found");
+        if (!r.ok) throw new Error("app.jsx " + r.status);
         return r.text();
       })
       .then(function (src) {
