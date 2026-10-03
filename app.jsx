@@ -14,7 +14,7 @@ const LINKS = {
   linkedin: "https://www.linkedin.com/in/gourav-kumar-r",
   email: "gkprof1107@gmail.com",
   phone: "+919916259010",
-  resume: "https://drive.google.com/uc?export=download&id=1iE6NDoQ87KCeLgg6hmQWsCM0rOnqvnva",
+  resume: "resume.pdf",
 };
 const FEATURED = {
   title: "BlogApp",
@@ -780,11 +780,11 @@ function Hero({ ready }) {
           <p className="hero-sub">I'm Gourav — I design Django APIs, data models and the plumbing behind web apps, then care about the interface on top of them too. Currently pushing that work toward applied AI: LLM-backed features and retrieval over real data.</p>
           <div className="cta-row">
             <Magnetic><a className="btn btn-primary" href="#work" data-cur="work">See the work</a></Magnetic>
-            <Magnetic><a className="btn" href={LINKS.resume} target="_blank" rel="noopener" data-cur="open">Download resume</a></Magnetic>
+            <Magnetic><a className="btn" href={LINKS.resume} download="Gourav-R-Resume.pdf" rel="noopener" data-cur="open">Download resume</a></Magnetic>
             <Magnetic><a className="btn" href={LINKS.github} target="_blank" rel="noopener" data-cur="open">GitHub</a></Magnetic>
           </div>
           <div className="hero-meta">
-            <span><b>Bengaluru</b>, Karnataka</span>
+            <span><b>Hospet</b>, Karnataka</span>
             <span><b>BCA</b> · Krishna Devaraya University</span>
             <span><b>4</b> languages spoken</span>
           </div>
