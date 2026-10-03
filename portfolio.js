@@ -784,7 +784,7 @@ function Hero({ ready }) {
             <Magnetic><a className="btn" href={LINKS.github} target="_blank" rel="noopener" data-cur="open">GitHub</a></Magnetic>
           </div>
           <div className="hero-meta">
-            <span><b>Hospet</b>, Karnataka</span>
+            <span><b>Bengaluru</b>, Karnataka</span>
             <span><b>BCA</b> · Krishna Devaraya University</span>
             <span><b>4</b> languages spoken</span>
           </div>
