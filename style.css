@@ -338,3 +338,64 @@
     .loader{display:none!important}
     .jcard{position:static;margin-bottom:18px}
   }
+
+  /* ---------- dark theme atmosphere: aurora + dot grid + grain + pointer light ---------- */
+  :root[data-theme="dark"] body::before,
+  :root[data-theme="dark"] body::after{content:"";position:fixed;pointer-events:none;z-index:-1}
+  /* slow-drifting aurora (GPU transform only, no repaint) */
+  :root[data-theme="dark"] body::before{
+    inset:-25%;
+    background:
+      radial-gradient(38% 34% at 18% 22%, rgba(63,217,164,.26), transparent 70%),
+      radial-gradient(34% 40% at 82% 30%, rgba(38,132,170,.30), transparent 72%),
+      radial-gradient(40% 36% at 62% 82%, rgba(247,169,75,.13), transparent 70%),
+      radial-gradient(30% 30% at 12% 85%, rgba(63,217,164,.10), transparent 70%);
+    animation:auroraDrift 48s ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  /* vignette + film grain */
+  :root[data-theme="dark"] body::after{
+    inset:0;
+    background:
+      radial-gradient(ellipse at 50% 36%, transparent 50%, rgba(2,8,12,.55) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .07 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes auroraDrift{
+    from{transform:translate3d(-3%,2%,0) rotate(-4deg) scale(1)}
+    to{transform:translate3d(3%,-2%,0) rotate(5deg) scale(1.12)}
+  }
+  /* floating light motes + rare shooting star (drawn on a canvas by the Atmosphere component) */
+  .bg-motes{display:none}
+  :root[data-theme="dark"] .bg-motes{display:block;position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  @media (prefers-reduced-motion: reduce){
+    :root[data-theme="dark"] body::before{animation:none}
+    :root[data-theme="dark"] .bg-motes{display:none}
+  }
+
+  /* ---------- stack: interested in / currently learning ---------- */
+  .grow{margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);display:grid;gap:12px}
+  .grow-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center}
+  @media (max-width:560px){.grow-row{grid-template-columns:1fr;gap:8px}}
+  .grow-label{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .chip-soft{background:transparent;border-style:dashed;color:var(--muted)}
+
+  /* ---------- invisible scrollbar: scrolling still works (wheel, touch, keys), the bar is just hidden ---------- */
+  html,body,*{scrollbar-width:none;-ms-overflow-style:none}
+  html::-webkit-scrollbar,body::-webkit-scrollbar,*::-webkit-scrollbar{display:none;width:0;height:0}
+
+  /* ---------- scroll rail (bottom): invisible at rest, wakes on scroll, full colour on hover ---------- */
+  .srail{position:fixed;left:0;right:0;bottom:0;height:20px;z-index:60;touch-action:none;user-select:none;-webkit-user-select:none}
+  .srail.off{display:none}
+  .srail-track{position:absolute;left:10px;right:10px;bottom:0;height:3px;border-radius:99px;opacity:0;background:transparent;
+    transition:height .22s var(--ease-out),bottom .22s var(--ease-out),opacity .35s var(--ease),background .25s var(--ease)}
+  .srail-thumb{position:absolute;left:0;top:0;height:100%;border-radius:99px;min-width:56px;cursor:grab;
+    background:linear-gradient(90deg,var(--jade),var(--amber));will-change:transform,width;transition:box-shadow .25s var(--ease)}
+  .srail.awake .srail-track{opacity:.85}
+  .srail:hover .srail-track,.srail.drag .srail-track{opacity:1;height:9px;bottom:6px;background:var(--line)}
+  .srail:hover .srail-thumb,.srail.drag .srail-thumb{box-shadow:0 0 14px -2px var(--jade)}
+  .srail.drag .srail-thumb{cursor:grabbing}
+  @media (prefers-reduced-motion: reduce){.srail-track,.srail-thumb{transition:none}}
+
+  /* while the theme wave is running, pause the expensive ambient layers so the wave stays smooth */
+  :root.theme-switching body::before{animation-play-state:paused}
+  :root.theme-switching header.nav{-webkit-backdrop-filter:none;backdrop-filter:none}

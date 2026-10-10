@@ -26,10 +26,22 @@ const FEATURED = {
 };
 const PROJECTS = [
   {
+    title: "Meditrack", hint: "Django · AI analysis", art: "medical",
+    body: "A Django-based healthcare application that tracks patient symptoms with AI-driven analysis. It maintains detailed patient profiles and continuously monitors reported symptoms to support early detection, progress tracking and personalized insights.",
+    tags: ["Django", "AI analysis", "Patient profiles", "Symptom monitoring"],
+    repo: "https://github.com/GouravK1107/Meditrack",
+  },
+  {
     title: "Todo REST API", hint: "Django REST Framework", art: "api",
     body: "A task manager with a fully documented REST API underneath: custom user model, OTP email verification, OTP-based password reset, priority and due-date tracking, and a dashboard with weekly completion stats. Built as a real system, not a CRUD tutorial.",
     tags: ["Django REST Framework", "OTP auth", "Task management", "Dashboard analytics"],
     repo: "https://github.com/GouravK1107/todo-api-drf",
+  },
+  {
+    title: "Roast as a Service", hint: "FastAPI · Flask", art: "roast",
+    body: "A fun, interactive Roast Battle Arena where users trade roasts, receive witty comebacks and compete through a score-based battle system. Built with Python, FastAPI and Flask.",
+    tags: ["Python", "FastAPI", "Flask", "Score-based battles"],
+    repo: "https://github.com/GouravK1107/Roast-as-a-service",
   },
   {
     title: "Divine Guidance", hint: "Django · RAG · LLM", art: "guidance",
@@ -50,13 +62,6 @@ const PROJECTS = [
     tags: ["Django", "PostgreSQL-ready", "Gunicorn", "Render"],
     repo: "https://github.com/GouravK1107/short.ly",
     demo: "https://short-ly-0auu.onrender.com",
-  },
-  {
-    title: "NoteNook", hint: "Django · Notes", art: "notes",
-    body: "A notes app that went past the CRUD basics: categories, favourites, real-time search, an animated mascot and a dark/light toggle, running on Postgres in production instead of staying on SQLite.",
-    tags: ["Django", "AJAX", "PostgreSQL-ready", "Render"],
-    repo: "https://github.com/GouravK1107/notenook",
-    demo: "https://notenook-yuaf.onrender.com/",
   },
 ];
 /* Every public repo on github.com/GouravK1107 — powers the "All projects" overlay */
@@ -82,12 +87,15 @@ const ALL_REPOS = [
   { name: "ATM Simulation", cat: "Learning", blurb: "First Python project, built solo right after learning the language.", repo: "https://github.com/GouravK1107/ATM_Simulation_program" },
   { name: "This portfolio", cat: "Learning", blurb: "Hand-written HTML, CSS and JS — no framework, no build step.", repo: "https://github.com/GouravK1107/my-portfolio" },
 ];
+const GROWING = [
+  { label: "Interested in", items: ["GenAI", "AI / ML"] },
+  { label: "Currently learning", items: ["Docker", "Cloud", "DSA"] },
+];
 const STACK = [
-  { key: "backend", label: "Backend", items: ["Python", "Django", "Django REST Framework", "Flask", "SQL", "PostgreSQL", "SQLite", "Firebase / Firestore", "REST API design", "Git", "GitHub"] },
+  { key: "backend", label: "Backend", items: ["Python", "Django", "Django REST Framework", "Flask", "SQL", "MySQL", "PostgreSQL", "SQLite", "Firebase / Firestore", "REST API design", "FastAPI", "Git", "GitHub"] },
   { key: "frontend", label: "Interface", items: ["HTML", "CSS", "JavaScript", "Responsive layout", "DOM work", "UI polish"] },
   { key: "ai", label: "AI & automation", items: ["LLM APIs", "RAG fundamentals", "n8n workflows", "Prompt design", "Claude", "ChatGPT", "Copilot", "Cursor", "Perplexity"] },
 ];
-const LEVELS = [["Python", 82, "Confident"], ["Django", 80, "Confident"], ["SQL", 65, "Intermediate"], ["JavaScript", 60, "Intermediate"], ["DSA", 55, "Building"]];
 const JOURNEY = [
   { when: "2023 — 2026", title: "BCA at Krishna Devaraya University", body: "Bachelor of Computer Applications. Coursework gave me the fundamentals; most of the actual engineering happened in side projects running in parallel." },
   { when: "2024 — 2026", title: "Built backend systems for peers and seniors", body: "Django and Python work for other people's projects: authentication systems, database models, CRUD workflows and REST-style APIs, with source managed properly in Git. Real deadlines and real feedback, which taught me more than any tutorial did." },
@@ -97,7 +105,7 @@ const AWARDS = [
   { title: "Winner, Chakravyuha", where: "BITM University, Bellary", when: "20 July 2024", body: "First place in a competitive problem-solving event." },
   { title: "Mentor, Ignitron 2K25 (CodeRush)", where: "GM University", when: "4 Dec 2025", body: "Mentored a team through a 24-hour national hackathon on AI in healthcare. They won." },
 ];
-const STATS = [[20, "Public repositories"], [6, "Featured builds with source you can read"], [2, "Hackathon results"]];
+const STATS = [[20, "Public repositories"], [7, "Featured builds with source you can read"], [2, "Hackathon results"]];
 
 /* ================= hooks ================= */
 function useReducedMotion() {
@@ -555,6 +563,46 @@ function PeekArt({ kind }) {
       </svg>
     );
   }
+  if (kind === "medical") {
+    return (
+      <svg viewBox="0 0 260 150">
+        <rect width="260" height="150" fill={bg} />
+        <rect x="60" y="14" width="140" height="90" rx="9" fill={line} />
+        <rect x="68" y="22" width="124" height="74" rx="5" fill={bg} />
+        <rect x="90" y="36" width="12" height="28" rx="3" fill={jade} />
+        <rect x="82" y="44" width="28" height="12" rx="3" fill={jade} />
+        <polyline points="120,54 134,54 140,42 148,66 156,36 164,54 184,54" fill="none" stroke={amber} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="78" y="76" width="60" height="6" rx="3" fill="var(--muted)" opacity=".5" />
+        <rect x="146" y="76" width="34" height="6" rx="3" fill={line} />
+        <rect x="122" y="104" width="16" height="14" fill={line} />
+        <rect x="100" y="118" width="60" height="8" rx="4" fill={line} />
+        <path d="M207 112 h11 v14 h-11 a7 7 0 0 1 0 -14 z" fill={jade} />
+        <path d="M218 112 h11 a7 7 0 0 1 0 14 h-11 z" fill={amber} />
+      </svg>
+    );
+  }
+  if (kind === "roast") {
+    return (
+      <svg viewBox="0 0 260 150">
+        <rect width="260" height="150" fill={bg} />
+        <rect x="14" y="20" width="100" height="110" rx="10" fill={bg} stroke={line} strokeWidth="2" />
+        <rect x="38" y="34" width="52" height="34" rx="4" fill="none" stroke={jade} strokeWidth="2.5" />
+        <rect x="45" y="42" width="24" height="4" rx="2" fill={jade} opacity=".6" />
+        <rect x="45" y="52" width="34" height="4" rx="2" fill={jade} opacity=".35" />
+        <rect x="58" y="68" width="12" height="6" fill={jade} />
+        <rect x="50" y="74" width="28" height="4" rx="2" fill={jade} />
+        <rect x="28" y="94" width="72" height="6" rx="3" fill="var(--muted)" opacity=".5" />
+        <rect x="28" y="108" width="48" height="6" rx="3" fill="var(--muted)" opacity=".4" />
+        <rect x="146" y="20" width="100" height="110" rx="10" fill={bg} stroke={line} strokeWidth="2" />
+        <circle cx="196" cy="46" r="12" fill={amber} />
+        <path d="M172 80 Q172 62 196 62 Q220 62 220 80 Z" fill={amber} opacity=".85" />
+        <rect x="160" y="94" width="72" height="6" rx="3" fill="var(--muted)" opacity=".5" />
+        <rect x="160" y="108" width="48" height="6" rx="3" fill="var(--muted)" opacity=".4" />
+        <circle cx="130" cy="75" r="14" fill={jade} />
+        <text x="130" y="79.5" textAnchor="middle" fontSize="11" fontWeight="700" fill="#fff" fontFamily="inherit">VS</text>
+      </svg>
+    );
+  }
   if (kind === "guidance") {
     return (
       <svg viewBox="0 0 260 150">
@@ -593,7 +641,57 @@ function Peek({ kind, on, x, y }) {
   );
 }
 
-function AllProjectsOverlay({ open, onClose }) {
+/* Live GitHub repos — curated copy above is the fallback (offline / rate-limited) and supplies nicer names + blurbs */
+const GH_USER = "GouravK1107";
+function ghDeriveCat(r) {
+  const t = ((r.topics || []).join(" ") + " " + (r.description || "") + " " + r.name).toLowerCase();
+  if ((r.topics || []).includes("learning")) return "Learning";
+  if (/\b(rag|llm|gpt|ai|machine-learning|langchain)\b/.test(t)) return "AI / RAG";
+  if (/(opencv|yolo|mediapipe|computer-vision|vision)/.test(t)) return "Computer vision";
+  if (/(django|flask|fastapi|drf|rest)/.test(t) || r.language === "Python") return "Django";
+  return r.language || "Other";
+}
+function ghDeriveRepo(r) {
+  const home = r.homepage && /^https?:\/\//.test(r.homepage) ? r.homepage : undefined;
+  const known = ALL_REPOS.find((k) => k.repo.toLowerCase() === r.html_url.toLowerCase());
+  if (known) return { ...known, repo: r.html_url, demo: known.demo || home };
+  return {
+    name: r.name.replace(/[-_.]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    cat: ghDeriveCat(r),
+    blurb: r.description || "Public repository on GitHub.",
+    repo: r.html_url,
+    demo: home,
+  };
+}
+function useRepos() {
+  const [repos, setRepos] = useState(ALL_REPOS);
+  useEffect(() => {
+    let dead = false;
+    const KEY = "gh_repos_v1";
+    try {
+      const c = JSON.parse(sessionStorage.getItem(KEY) || "null");
+      if (c && c.list && c.list.length && Date.now() - c.t < 600000) { setRepos(c.list); return; }
+    } catch (e) {}
+    fetch("https://api.github.com/users/" + GH_USER + "/repos?per_page=100&sort=updated", { headers: { Accept: "application/vnd.github+json" } })
+      .then((res) => { if (!res.ok) throw new Error("GitHub " + res.status); return res.json(); })
+      .then((data) => {
+        if (dead || !Array.isArray(data)) return;
+        const live = data.filter((r) => !r.fork && r.name.toLowerCase() !== GH_USER.toLowerCase());
+        if (!live.length) return;
+        const order = (r) => ALL_REPOS.findIndex((k) => k.repo.toLowerCase() === r.html_url.toLowerCase());
+        const fresh = live.filter((r) => order(r) < 0);
+        const known = live.filter((r) => order(r) >= 0).sort((a, b) => order(a) - order(b));
+        const list = [...fresh, ...known].map(ghDeriveRepo);
+        setRepos(list);
+        try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), list })); } catch (e) {}
+      })
+      .catch(() => {});
+    return () => { dead = true; };
+  }, []);
+  return repos;
+}
+
+function AllProjectsOverlay({ open, onClose, repos }) {
   const [cat, setCat] = useState("All");
   const [flipped, setFlipped] = useState(null);
 
@@ -611,8 +709,8 @@ function AllProjectsOverlay({ open, onClose }) {
   }, [open, onClose]);
 
   if (!open) return null;
-  const cats = ["All", ...Array.from(new Set(ALL_REPOS.map((r) => r.cat)))];
-  const list = cat === "All" ? ALL_REPOS : ALL_REPOS.filter((r) => r.cat === cat);
+  const cats = ["All", ...Array.from(new Set(repos.map((r) => r.cat)))];
+  const list = cat === "All" ? repos : repos.filter((r) => r.cat === cat);
 
   return (
     <div className="all-back" onClick={onClose}>
@@ -620,14 +718,14 @@ function AllProjectsOverlay({ open, onClose }) {
         <div className="all-head">
           <div>
             <h3>All projects</h3>
-            <p>{ALL_REPOS.length} public repositories on GitHub — hover a card for a preview, tap it on mobile.</p>
+            <p>{repos.length} public repositories on GitHub — hover a card for a preview, tap it on mobile.</p>
           </div>
           <button className="icon-btn" onClick={onClose} aria-label="Close" data-cur="close">✕</button>
         </div>
         <div className="all-tabs">
           {cats.map((c) => (
             <button key={c} className={"tab" + (cat === c ? " on" : "")} onClick={() => setCat(c)}>
-              {c}{c !== "All" ? " · " + ALL_REPOS.filter((r) => r.cat === c).length : ""}
+              {c}{c !== "All" ? " · " + repos.filter((r) => r.cat === c).length : ""}
             </button>
           ))}
         </div>
@@ -661,6 +759,74 @@ function AllProjectsOverlay({ open, onClose }) {
 }
 
 /* ================= chrome ================= */
+/* Soft magic sparkles that ride the leading edge of the theme wave (canvas, ~240 particles max) */
+function makeSparkles(x, y, radius, named) {
+  const cv = document.createElement("canvas");
+  const dpr = 1;
+  const W = window.innerWidth, H = window.innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;z-index:9999;pointer-events:none" + (named ? ";view-transition-name:sparkle" : "");
+  document.body.appendChild(cv);
+  let raf = 0;
+  const remove = () => { cancelAnimationFrame(raf); cv.remove(); };
+  const star = (ctx, px, py, r) => {
+    ctx.beginPath();
+    ctx.moveTo(px, py - r);
+    ctx.quadraticCurveTo(px, py, px + r, py);
+    ctx.quadraticCurveTo(px, py, px, py + r);
+    ctx.quadraticCurveTo(px, py, px - r, py);
+    ctx.quadraticCurveTo(px, py, px, py - r);
+    ctx.fill();
+  };
+  const run = (anim) => {
+    const ctx = cv.getContext("2d");
+    ctx.scale(dpr, dpr);
+    const cs = getComputedStyle(document.documentElement);
+    const palette = [cs.getPropertyValue("--jade").trim() || "#3FD9A4", cs.getPropertyValue("--amber").trim() || "#F7A94B", "#ffffff"];
+    const sprites = palette.map((col) => {
+      const sc = document.createElement("canvas"); sc.width = sc.height = 64;
+      const g = sc.getContext("2d");
+      g.fillStyle = col; g.shadowColor = col; g.shadowBlur = 10;
+      star(g, 32, 32, 16);
+      return sc;
+    });
+    const parts = [];
+    let last = performance.now();
+    const tick = (now) => {
+      const dt = Math.min(now - last, 40); last = now;
+      let p = 0;
+      try { p = anim.playState === "finished" ? 1 : (anim.effect.getComputedTiming().progress || 0); } catch (e) { p = 1; }
+      const r = p * radius;
+      if (p < 0.96) {
+        const n = Math.random() < 0.5 ? 5 : 4;
+        for (let i = 0; i < n; i++) {
+          const a = Math.random() * Math.PI * 2;
+          const rr = r - Math.random() * 46;
+          const px = x + Math.cos(a) * rr, py = y + Math.sin(a) * rr;
+          if (parts.length > 240 || rr < 6 || px < -10 || px > W + 10 || py < -10 || py > H + 10) continue;
+          const sp = 0.015 + Math.random() * 0.04;
+          parts.push({ x: px, y: py, vx: Math.cos(a) * sp + (Math.random() - 0.5) * 0.03, vy: Math.sin(a) * sp - 0.025, life: 0, max: 650 + Math.random() * 600, size: (1.8 + Math.random() * 2.8) * (Math.random() < 0.12 ? 1.8 : 1), ci: (Math.random() * palette.length) | 0 });
+        }
+      }
+      ctx.clearRect(0, 0, W, H);
+      for (let i = parts.length - 1; i >= 0; i--) {
+        const q = parts[i];
+        q.life += dt;
+        if (q.life >= q.max) { parts.splice(i, 1); continue; }
+        q.x += q.vx * dt; q.y += q.vy * dt;
+        const tw = Math.sin((q.life / q.max) * Math.PI);
+        ctx.globalAlpha = Math.min(1, tw * 1.1);
+        const d = q.size * (0.5 + 0.5 * tw) * 1.9 * 4;
+        ctx.drawImage(sprites[q.ci], q.x - d / 2, q.y - d / 2, d, d);
+      }
+      ctx.globalAlpha = 1;
+      if (p < 1 || parts.length) raf = requestAnimationFrame(tick); else remove();
+    };
+    raf = requestAnimationFrame(tick);
+  };
+  return { run, remove };
+}
+
 function useTheme() {
   const [theme, setTheme] = useState("dark");
   useEffect(() => {
@@ -669,14 +835,58 @@ function useTheme() {
     const next = saved === "light" || saved === "dark" ? saved : "dark";
     setTheme(next); document.documentElement.setAttribute("data-theme", next);
   }, []);
-  const toggle = useCallback(() => {
-    setTheme((t) => {
-      const next = t === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
+  const busy = useRef(false);
+  const toggle = useCallback((ev) => {
+    if (busy.current) return;
+    const root = document.documentElement;
+    const next = theme === "dark" ? "light" : "dark";
+    const apply = () => {
+      root.setAttribute("data-theme", next);
+      setTheme(next);
       try { localStorage.setItem("gr-theme", next); } catch (e) {}
-      return next;
-    });
-  }, []);
+    };
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const btn = ev && ev.currentTarget && ev.currentTarget.getBoundingClientRect ? ev.currentTarget : null;
+    if (reduce || !btn) { apply(); return; }
+
+    /* wave origin = centre of the button that was pressed */
+    const r = btn.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    const clip = [ "circle(0px at " + x + "px " + y + "px)", "circle(" + radius + "px at " + x + "px " + y + "px)" ];
+    const opts = { duration: 850, easing: "cubic-bezier(.22,1,.36,1)" };
+    busy.current = true;
+    root.classList.add("theme-switching");
+    const done = () => { root.classList.remove("theme-switching"); busy.current = false; };
+
+    if (document.startViewTransition) {
+      const st = document.createElement("style");
+      st.textContent = "::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}::view-transition-old(root){z-index:1}::view-transition-new(root){z-index:2}::view-transition-group(sparkle),::view-transition-new(sparkle){animation:none}::view-transition-old(sparkle){display:none}";
+      document.head.appendChild(st);
+      const sp = makeSparkles(x, y, radius, true);
+      const vt = document.startViewTransition(apply);
+      vt.ready.then(() => {
+        const wave = root.animate({ clipPath: clip }, { ...opts, pseudoElement: "::view-transition-new(root)" });
+        sp.run(wave);
+      }).catch(() => { sp.remove(); });
+      vt.finished.finally(() => { st.remove(); done(); });
+    } else {
+      /* fallback for browsers without View Transitions: expanding disc in the next theme's background colour */
+      root.setAttribute("data-theme", next);
+      const bg = getComputedStyle(root).getPropertyValue("--bg").trim() || (next === "light" ? "#fff" : "#000");
+      root.setAttribute("data-theme", theme);
+      const disc = document.createElement("div");
+      disc.style.cssText = "position:fixed;inset:0;z-index:200;pointer-events:none;background:" + bg;
+      document.body.appendChild(disc);
+      const a = disc.animate({ clipPath: clip }, { ...opts, fill: "forwards" });
+      makeSparkles(x, y, radius, false).run(a);
+      a.onfinish = () => {
+        apply();
+        const f = disc.animate({ opacity: [1, 0] }, { duration: 220, fill: "forwards" });
+        f.onfinish = () => { disc.remove(); done(); };
+      };
+    }
+  }, [theme]);
   return [theme, toggle];
 }
 
@@ -836,10 +1046,11 @@ function Work() {
   const leave = () => setPeek((p) => ({ ...p, on: false }));
 
   const [allOpen, setAllOpen] = useState(false);
+  const repos = useRepos();
 
   return (
     <Section id="work" idx="01" name="Work">
-      <Split as="h2" text="Six builds, each one fixing what the last one taught me." />
+      <Split as="h2" text="Seven builds, each one fixing what the last one taught me." />
       <Reveal><p className="lead">Every project below has readable source. Start with BlogApp — it's the one with the most moving parts: auth, social features and a dashboard.</p></Reveal>
 
       <Reveal>
@@ -880,18 +1091,17 @@ function Work() {
       </div>
 
       <div className="links" style={{ marginTop: 26 }}>
-        <Magnetic><button className="link-pill" onClick={() => setAllOpen(true)} data-cur="open">All {ALL_REPOS.length} repositories ↗</button></Magnetic>
+        <Magnetic><button className="link-pill" onClick={() => setAllOpen(true)} data-cur="open">All {repos.length} repositories ↗</button></Magnetic>
       </div>
 
       {fine && !rm ? <Peek kind={peek.kind} on={peek.on} x={peek.x} y={peek.y} /> : null}
-      <AllProjectsOverlay open={allOpen} onClose={() => setAllOpen(false)} />
+      <AllProjectsOverlay open={allOpen} onClose={() => setAllOpen(false)} repos={repos} />
     </Section>
   );
 }
 
 function Stack() {
   const [tab, setTab] = useState("backend");
-  const [ref, seen] = useInView({ threshold: 0.3 });
   const group = STACK.find((g) => g.key === tab);
   return (
     <Section id="stack" idx="02" name="Stack" field>
@@ -902,12 +1112,11 @@ function Stack() {
       <div className="chips" key={tab}>
         {group.items.map((it, i) => <span className="chip" key={it} style={{ animationDelay: (i * 0.035) + "s" }}>{it}</span>)}
       </div>
-      <div className="bars" ref={ref}>
-        {LEVELS.map(([name, pct, label]) => (
-          <div className="bar-row" key={name}>
-            <span>{name}</span>
-            <span className="bar-track"><span className="bar-fill" style={{ width: seen ? pct + "%" : 0 }} /></span>
-            <span className="lvl">{label}</span>
+      <div className="grow">
+        {GROWING.map((g) => (
+          <div className="grow-row" key={g.label}>
+            <span className="grow-label">{g.label}</span>
+            <div className="chips">{g.items.map((it) => <span className="chip chip-soft" key={it}>{it}</span>)}</div>
           </div>
         ))}
       </div>
@@ -1125,6 +1334,161 @@ function Footer() {
 }
 
 /* ================= app ================= */
+/* Dark-theme atmosphere: slow floating light motes and a rare shooting star (canvas, ~25-55 particles) */
+function Atmosphere() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const cv = ref.current;
+    if (!cv || !window.matchMedia) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const root = document.documentElement;
+    const ctx = cv.getContext("2d");
+    let W = 0, H = 0, dpr = 1, raf = 0, last = 0, motes = [], star = null, nextStar = 0;
+    const css = (n, f) => getComputedStyle(root).getPropertyValue(n).trim() || f;
+    let palette = ["#3FD9A4", "#F7A94B", "#E9F2F3"];
+    let sprites = [];
+    const makeSprites = () => {
+      sprites = palette.map((col) => {
+        const sc = document.createElement("canvas"); sc.width = sc.height = 40;
+        const g = sc.getContext("2d");
+        g.fillStyle = col; g.shadowColor = col; g.shadowBlur = 10;
+        g.beginPath(); g.arc(20, 20, 5, 0, 6.2832); g.fill();
+        return sc;
+      });
+    };
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.max(24, Math.min(55, Math.round((W * H) / 30000)));
+      motes = Array.from({ length: n }, () => ({
+        x: rnd(0, W), y: rnd(0, H), r: rnd(1, 2.4), vy: rnd(0.006, 0.022), sway: rnd(8, 26), sp: rnd(0.0003, 0.0008),
+        ph: rnd(0, 6.28), tw: rnd(0.0005, 0.0015), a: rnd(0.4, 0.85), ci: (Math.random() * 3) | 0,
+      }));
+    };
+    const frame = (now) => {
+      raf = requestAnimationFrame(frame);
+      const dt = Math.min(now - (last || now), 50); last = now;
+      if (root.classList.contains("theme-switching")) return; /* keep the last frame while the theme wave runs */
+      if (root.getAttribute("data-theme") !== "dark" || document.hidden) { ctx.clearRect(0, 0, W, H); return; }
+      ctx.clearRect(0, 0, W, H);
+      for (const m of motes) {
+        m.y -= m.vy * dt;
+        if (m.y < -10) { m.y = H + 10; m.x = rnd(0, W); }
+        const x = m.x + Math.sin(now * m.sp + m.ph) * m.sway;
+        const al = m.a * (0.55 + 0.45 * Math.sin(now * m.tw + m.ph));
+        const d = m.r * 8;
+        ctx.globalAlpha = al;
+        ctx.drawImage(sprites[m.ci], x - d / 2, m.y - d / 2, d, d);
+      }
+      /* a rare shooting star */
+      if (!star && now > nextStar) {
+        const ang = rnd(0.55, 0.8);
+        star = { x: rnd(W * 0.35, W * 0.95), y: rnd(0, H * 0.35), vx: -Math.cos(ang), vy: Math.sin(ang), life: 0, max: 900, len: rnd(110, 170) };
+      }
+      if (star) {
+        star.life += dt;
+        const k = star.life / star.max;
+        if (k >= 1) { star = null; nextStar = now + rnd(9000, 16000); }
+        else {
+          const dist = k * 520;
+          const hx = star.x + star.vx * dist, hy = star.y + star.vy * dist;
+          const tx = hx - star.vx * star.len, ty = hy - star.vy * star.len;
+          const g = ctx.createLinearGradient(hx, hy, tx, ty);
+          g.addColorStop(0, "rgba(233,242,243,.9)"); g.addColorStop(0.3, palette[0]); g.addColorStop(1, "rgba(63,217,164,0)");
+          ctx.globalAlpha = Math.sin(k * Math.PI) * 0.85;
+          ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.lineCap = "round";
+          ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(tx, ty); ctx.stroke();
+        }
+      }
+      ctx.globalAlpha = 1;
+    };
+    palette = [css("--jade", "#3FD9A4"), css("--amber", "#F7A94B"), "#E9F2F3"];
+    makeSprites();
+    resize(); nextStar = performance.now() + 4500;
+    raf = requestAnimationFrame(frame);
+    window.addEventListener("resize", resize);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+  }, []);
+  return <canvas className="bg-motes" ref={ref} aria-hidden="true" />;
+}
+
+/* Custom scroll rail along the bottom edge: hidden at rest, wakes while scrolling, fully visible on hover, draggable */
+function ScrollRail() {
+  const rail = useRef(null), track = useRef(null), thumb = useRef(null);
+  useEffect(() => {
+    const R = rail.current, T = track.current, H = thumb.current;
+    if (!R || !T || !H) return;
+    let raf = 0, idle = 0, drag = false, off = 0;
+    const total = () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+    const geo = () => {
+      const tot = total();
+      const tw = T.clientWidth;
+      const size = Math.min(tw, Math.max(tw * (window.innerHeight / Math.max(document.documentElement.scrollHeight, 1)), 56));
+      return { tot, tw, size, room: Math.max(tw - size, 0) };
+    };
+    const paint = () => {
+      raf = 0;
+      const tot = total();
+      R.classList.toggle("off", tot <= 2);
+      if (tot <= 2) return;
+      const g = geo();
+      const pr = Math.min(1, Math.max(0, window.scrollY / tot));
+      H.style.width = g.size + "px";
+      H.style.transform = "translate3d(" + (pr * g.room) + "px,0,0)";
+    };
+    const queue = () => { if (!raf) raf = requestAnimationFrame(paint); };
+    const wake = (ms) => {
+      R.classList.add("awake");
+      clearTimeout(idle);
+      idle = setTimeout(() => R.classList.remove("awake"), ms || 1100);
+    };
+    const onScroll = () => { queue(); wake(); };
+    const jump = (e) => {
+      const g = geo();
+      const r = T.getBoundingClientRect();
+      const pr = Math.min(1, Math.max(0, (e.clientX - r.left - off) / (g.room || 1)));
+      window.scrollTo({ top: pr * g.tot, behavior: "instant" });
+    };
+    const down = (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      const g = geo();
+      off = e.target === H ? e.clientX - H.getBoundingClientRect().left : g.size / 2;
+      drag = true; R.classList.add("drag");
+      try { R.setPointerCapture(e.pointerId); } catch (err) {}
+      jump(e); e.preventDefault();
+    };
+    const move = (e) => { if (drag) jump(e); };
+    const up = (e) => {
+      if (!drag) return;
+      drag = false; R.classList.remove("drag");
+      try { R.releasePointerCapture(e.pointerId); } catch (err) {}
+      wake();
+    };
+    paint(); wake(1800);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", queue);
+    R.addEventListener("pointerdown", down);
+    R.addEventListener("pointermove", move);
+    R.addEventListener("pointerup", up);
+    R.addEventListener("pointercancel", up);
+    const ro = new ResizeObserver(queue); ro.observe(document.body);
+    return () => {
+      cancelAnimationFrame(raf); clearTimeout(idle); ro.disconnect();
+      window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", queue);
+      R.removeEventListener("pointerdown", down); R.removeEventListener("pointermove", move);
+      R.removeEventListener("pointerup", up); R.removeEventListener("pointercancel", up);
+    };
+  }, []);
+  return (
+    <div className="srail off" ref={rail} aria-hidden="true">
+      <div className="srail-track" ref={track}><div className="srail-thumb" ref={thumb} /></div>
+    </div>
+  );
+}
+
 function App() {
   const [theme, toggleTheme] = useTheme();
   const [active, setActive] = useState("work");
@@ -1149,6 +1513,8 @@ function App() {
   return (
     <Fragment>
       <Loader onDone={() => setReady(true)} />
+      <Atmosphere />
+      <ScrollRail />
       <Cursor />
       <Nav active={active} theme={theme} onTheme={toggleTheme} onCmd={() => setCmd(true)} />
       <main>
